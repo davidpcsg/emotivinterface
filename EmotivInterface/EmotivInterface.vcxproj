@@ -107,7 +107,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Projetos\emotiv\emotivinterface-master\EmotivInterface\webserver;C:\Projetos\emotiv\community-sdk-3.5.1-WIN-MAC-ANDROID\include;C:\Projetos\emotiv\emotivinterface-master\EmotivInterface\jsoncpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Projetos\emotiv\emotivinterface\EmotivInterface\webserver;C:\Projetos\emotiv\emotivinterface\EmotivInterface\jsoncpp;C:\Projetos\emotiv\community-sdk-3.5.1-WIN-MAC-ANDROID\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
