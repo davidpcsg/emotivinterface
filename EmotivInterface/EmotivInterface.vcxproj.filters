@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Emotiv">
+      <UniqueIdentifier>{9c26df20-4227-4503-8c5f-b86ea6e8dc44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="jsoncpp">
+      <UniqueIdentifier>{07fbc46e-ee20-4252-a776-15b6a3159c03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Webserver">
+      <UniqueIdentifier>{3da3bc72-c08a-4dcf-a2eb-e19b1dc8a700}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Emotiv\Emotiv.h">
+      <Filter>Emotiv</Filter>
+    </ClInclude>
+    <ClInclude Include="webserver\base64.h">
+      <Filter>Webserver</Filter>
+    </ClInclude>
+    <ClInclude Include="webserver\socket.h">
+      <Filter>Webserver</Filter>
+    </ClInclude>
+    <ClInclude Include="webserver\stdHelpers.h">
+      <Filter>Webserver</Filter>
+    </ClInclude>
+    <ClInclude Include="webserver\Tracer.h">
+      <Filter>Webserver</Filter>
+    </ClInclude>
+    <ClInclude Include="webserver\UrlHelper.h">
+      <Filter>Webserver</Filter>
+    </ClInclude>
+    <ClInclude Include="webserver\webserver.h">
+      <Filter>Webserver</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EmotivInterface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Emotiv\Emotiv.cpp">
+      <Filter>Emotiv</Filter>
+    </ClCompile>
+    <ClCompile Include="jsoncpp\json_reader.cpp">
+      <Filter>jsoncpp</Filter>
+    </ClCompile>
+    <ClCompile Include="jsoncpp\json_value.cpp">
+      <Filter>jsoncpp</Filter>
+    </ClCompile>
+    <ClCompile Include="jsoncpp\json_writer.cpp">
+      <Filter>jsoncpp</Filter>
+    </ClCompile>
+    <ClCompile Include="webserver\base64.cpp">
+      <Filter>Webserver</Filter>
+    </ClCompile>
+    <ClCompile Include="webserver\socket.cpp">
+      <Filter>Webserver</Filter>
+    </ClCompile>
+    <ClCompile Include="webserver\stdHelpers.cpp">
+      <Filter>Webserver</Filter>
+    </ClCompile>
+    <ClCompile Include="webserver\UrlHelper.cpp">
+      <Filter>Webserver</Filter>
+    </ClCompile>
+    <ClCompile Include="webserver\webserver.cpp">
+      <Filter>Webserver</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
