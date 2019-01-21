@@ -139,7 +139,7 @@ DWORD WINAPI Emotiv::DoPower(LPVOID pParam)
 								IEE_MentalCommandGetActionSkillRating(userID, IEE_MentalCommandAction_t::MC_PULL, &skill);
 								it->power = int(power*100);
 								it->current_action = 2;
-								it->skill = (skill * 100);
+					 			it->skill = (skill * 100);
 							}
 							else if(actionType == IEE_MentalCommandAction_t::MC_NEUTRAL)
 							{
