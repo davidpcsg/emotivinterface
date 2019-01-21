@@ -14,12 +14,12 @@ The Hot and Cold is a game where the player commands a wheeled robot (Turtlebot3
 
 ### Requirements:
 
-Emotiv Epoc or Insight EEG headset (www.emotiv.com)
-Visual Studio 2017 (v141)
-Emotiv Community SDK (github.com/Emotiv/community-sdk)
-JsonCpp (embeded in sources)
-WebServer (embeded in sources)
-Emotiv Xavier Control Panel, only for training command actions (https://drive.google.com/open?id=147dwK88pOQe6nuLj-MugHCnKNpJCtwDN)
+Emotiv Epoc or Insight EEG headset (www.emotiv.com)  
+Visual Studio 2017 (v141)  
+Emotiv Community SDK (github.com/Emotiv/community-sdk)  
+JsonCpp (embeded in sources)  
+WebServer (embeded in sources)  
+Emotiv Xavier Control Panel, only for training command actions (https://drive.google.com/open?id=147dwK88pOQe6nuLj-MugHCnKNpJCtwDN)  
 
 ### Configuration
 
