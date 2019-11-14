@@ -148,6 +148,17 @@ DWORD WINAPI Emotiv::DoPower(LPVOID pParam)
 								it->skill = 0;
 							}
 
+							/*
+							
+							Performance Metrics:
+							Exemplo no git da community SDK no folder de examples_extra_prime (embora funcione na licensa free)
+							
+							ScressScore esta vindo zerdo. Uma opcao para calcular???
+							rawScore = IS_PerformanceMetricGetStressScore(pEmotiv->eState_);
+							CalculateScale(rawScore, maxScale, minScale, it->stress_score);
+
+							*/
+
 							double rawScore = 0;
 							double minScale = 0;
 							double maxScale = 0;
@@ -162,10 +173,28 @@ DWORD WINAPI Emotiv::DoPower(LPVOID pParam)
 							IS_PerformanceMetricGetInterestModelParams(pEmotiv->eState_, &rawScore, &minScale, &maxScale);
 							CalculateScale(rawScore, maxScale, minScale, it->interest_score);
 
-
+							
 							EnterCriticalSection(&pEmotiv->m_critical);
 							pEmotiv->WriteJsonStatus(pEmotiv);
 							LeaveCriticalSection(&pEmotiv->m_critical);
+
+							/* BAND POWERS
+							double alpha, low_beta, high_beta, gamma, theta;
+							alpha = low_beta = high_beta = gamma = theta = 0;
+
+							IEE_DataChannel_t channelList[] = { IED_AF3, IED_F7, IED_F3, IED_FC5, IED_T7, IED_P7, IED_O1, IED_O2,
+								IED_P8, IED_T8, IED_FC6, IED_F4, IED_F8, IED_AF4 };
+							for (int i = 0; i < sizeof(channelList) / sizeof(channelList[0]); ++i)
+							{
+								int result = IEE_GetAverageBandPowers(userID, channelList[i], &theta, &alpha,
+									&low_beta, &high_beta, &gamma);
+								if (result == EDK_OK) {
+
+									std::cout << theta << "," << alpha << "," << low_beta << ",";
+									std::cout << high_beta << "," << gamma << std::endl;
+								}
+							}
+							*/
 						}
 					}
 					break;
