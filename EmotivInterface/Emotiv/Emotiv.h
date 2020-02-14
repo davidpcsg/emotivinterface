@@ -75,6 +75,7 @@ class Emotiv
 		int			GetCloudID();
 };
 
-
+bool const EMOTIV_SMART = false;
+int const EMOTIV_THRESHOLD = 77;
 
 

@@ -16,7 +16,7 @@
 
 using namespace std;
 
-const char *byte_to_binary(long x)
+const char *byte_to_binary(long x)		
 {
 	static char b[9];
 	b[0] = '\0';
@@ -112,6 +112,7 @@ DWORD WINAPI Emotiv::DoPower(LPVOID pParam)
 
 				case IEE_EmoStateUpdated:
 				{
+
 					onStateChanged = true;
 					if(IEE_EmoEngineEventGetEmoState(pEmotiv->eEvent_, pEmotiv->eState_) == EDK_OK)
 					{
@@ -119,6 +120,11 @@ DWORD WINAPI Emotiv::DoPower(LPVOID pParam)
 						it = pEmotiv->FindPlayer(userID);
 						if(it  != pEmotiv->players_.end())
 						{
+							/* Backup old values*/
+							float power_old = it->power;
+							int current_action_old = it->current_action;
+							float skill_old = it->skill;
+
 							int status = IS_MentalCommandIsActive(pEmotiv->eState_);
 							it->noise = status;
 
@@ -129,9 +135,10 @@ DWORD WINAPI Emotiv::DoPower(LPVOID pParam)
 							{
 								power = IS_MentalCommandGetCurrentActionPower(pEmotiv->eState_);
 								IEE_MentalCommandGetActionSkillRating(userID, IEE_MentalCommandAction_t::MC_PUSH, &skill);
+								it->skill = (skill * 100);
 								it->power = int(power*100);
 								it->current_action = 1;
-								it->skill = (skill*100);
+								
 							}
 							else if (actionType == IEE_MentalCommandAction_t::MC_PULL)
 							{
@@ -146,6 +153,31 @@ DWORD WINAPI Emotiv::DoPower(LPVOID pParam)
 								it->current_action = 0;
 								it->power = 0;
 								it->skill = 0;
+							}
+
+							/* EMOTIV SMART */
+							if (EMOTIV_SMART) {
+
+								//se nao estou no neutro
+								if (current_action_old != 0 && it->current_action != 0) {
+
+									//ignoro novo comando se forca menor que anterior
+									if (it->power < power_old) {
+										it->power = power_old;
+										it->skill = skill_old;
+										it->current_action = current_action_old;
+									}
+								}
+							}
+							//se nao for smart uso o threshold constante
+							else {
+								//se novo comando diferente de neutro e forca menor que threshold entao ignoro novo comando
+								//notar que o neutro tem forca de comando sempre igual a zero
+								if (it->current_action != 0 && it->power < EMOTIV_THRESHOLD) {									
+									it->power = power_old;
+									it->skill = skill_old;
+									it->current_action = current_action_old;
+								}
 							}
 
 							/*
