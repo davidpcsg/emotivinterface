@@ -76,6 +76,7 @@ class Emotiv
 };
 
 bool const EMOTIV_SMART = false;
-int const EMOTIV_THRESHOLD = 77;
+int const EMOTIV_THRESHOLD_QUENTE = 77;
+int const EMOTIV_THRESHOLD_FRIO = 77;
 
 

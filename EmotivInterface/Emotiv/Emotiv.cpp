@@ -171,9 +171,11 @@ DWORD WINAPI Emotiv::DoPower(LPVOID pParam)
 							}
 							//se nao for smart uso o threshold constante
 							else {
-								//se novo comando diferente de neutro e forca menor que threshold entao ignoro novo comando
-								//notar que o neutro tem forca de comando sempre igual a zero
-								if (it->current_action != 0 && it->power < EMOTIV_THRESHOLD) {									
+								//se novo comando igual quente ou frio e forca menor que threshold entao ignoro novo comando
+								//notar que o neutro tem forca de comando sempre igual a zero								
+								if (it->current_action == 1 && it->power < EMOTIV_THRESHOLD_QUENTE || 
+									it->current_action == 2 && it->power < EMOTIV_THRESHOLD_FRIO) {
+
 									it->power = power_old;
 									it->skill = skill_old;
 									it->current_action = current_action_old;
